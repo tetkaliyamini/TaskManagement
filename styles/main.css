@@ -1,0 +1,190 @@
+.kanban-board {
+    min-height: calc(100vh - 100px);
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-size: cover;
+    position: relative;
+}
+
+.kanban-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.task-column {
+    min-height: 500px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    backdrop-filter: blur(8px);
+}
+
+.task-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.task-column.todo {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 255, 0.9));
+    border-top: 4px solid #4f46e5;
+}
+
+.task-column.in-progress {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 255, 249, 0.9));
+    border-top: 4px solid #059669;
+}
+
+.task-column.done {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 249, 0.9));
+    border-top: 4px solid #dc2626;
+}
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    animation: modalSlideIn 0.3s ease-out;
+    background: linear-gradient(135deg, #ffffff, #f8f9ff);
+}
+
+.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.task-card {
+    cursor: grab;
+    transition: all 0.2s ease;
+    animation: cardSlideIn 0.3s ease-out;
+    border-left: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.task-card:hover::before {
+    transform: translateX(100%);
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-card.todo {
+    border-left-color: #4f46e5;
+    background: linear-gradient(to right, rgba(79, 70, 229, 0.1), transparent);
+}
+
+.task-card.in-progress {
+    border-left-color: #059669;
+    background: linear-gradient(to right, rgba(5, 150, 105, 0.1), transparent);
+}
+
+.task-card.done {
+    border-left-color: #dc2626;
+    background: linear-gradient(to right, rgba(220, 38, 38, 0.1), transparent);
+}
+
+.task-card:active {
+    cursor: grabbing;
+    transform: scale(0.95);
+}
+
+.task-meta-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.column-header {
+    position: relative;
+    overflow: hidden;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.app-title {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-count {
+    font-size: 0.875rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+    margin-left: 8px;
+}
+
+.empty-column {
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: #6b7280;
+}
