@@ -62,14 +62,14 @@ Simply double-click the `index.html` file to open it in your default web browser
 
 ## Features
 
-- 📱 Responsive design that works on all devices
-- 🎨 Beautiful UI with smooth animations
-- 🖱️ Drag and drop tasks between columns
-- ➕ Add new tasks with a modal form
-- 🔄 Real-time status updates
-- 🎯 Three status columns: To Do, In Progress, and Done
-- 🌈 Gradient backgrounds and subtle animations
-- 🎭 Interactive hover effects
+-  Responsive design that works on all devices
+-  Beautiful UI with smooth animations
+-  Drag and drop tasks between columns
+-  Add new tasks with a modal form
+-  Real-time status updates
+-  Three status columns: To Do, In Progress, and Done
+-  Gradient backgrounds and subtle animations
+-  Interactive hover effects
 
 ## Browser Support
 
